@@ -504,7 +504,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Exemple-ExempleTests/Pods-Exemple-ExempleTests-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/MeetHourSDK/MeetHourSDK.framework/MeetHourSDK",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/WebRTC/WebRTC.framework/WebRTC",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/MeetHourSDK/WebRTC.framework/WebRTC",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -590,7 +590,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Exemple/Pods-Exemple-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/MeetHourSDK/MeetHourSDK.framework/MeetHourSDK",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/WebRTC/WebRTC.framework/WebRTC",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/MeetHourSDK/WebRTC.framework/WebRTC",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
