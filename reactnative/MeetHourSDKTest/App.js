@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, {Component} from 'react';
 import {
   Text,
   TextInput,
@@ -10,7 +11,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import MeetHour, { MeetHourView } from 'react-native-meet-hour-sdk';
+import MeetHour, {MeetHourView} from 'react-native-meet-hour-sdk';
 
 import styles from './styles/styles';
 import strings from './lang/strings';
@@ -23,8 +24,8 @@ class App extends Component {
     this.onConferenceWillJoin = this.onConferenceWillJoin.bind(this);
     this.state = {
       showMeet: false,
-      serverUrl: '',
-      roomName: '',
+      serverUrl: 'https://meethour.io',
+      roomName: '18311a05e8',
       subject: '',
       displayName: '',
       email: '',
@@ -34,7 +35,7 @@ class App extends Component {
   }
 
   runMeet() {
-    this.setState({ showMeet: true });
+    this.setState({showMeet: true});
 
     const meetingInfo = {
       serverUrl: this.state.serverUrl,
@@ -69,7 +70,7 @@ class App extends Component {
   onConferenceTerminated(nativeEvent) {
     /* Conference terminated event */
     console.log(nativeEvent);
-    this.setState({ showMeet: false });
+    this.setState({showMeet: false});
   }
 
   cleanUp() {
@@ -98,19 +99,18 @@ class App extends Component {
               width: '100%',
             }}
           />
-        ) :
-
-          (<ScrollView>
+        ) : (
+          <ScrollView>
             <ImageBackground
               source={require('./images/MeetHour_logo.png')}
               style={styles.image}
-              resizeMode='contain'
+              resizeMode="contain"
             />
             <TextInput
               style={styles.textInput}
               value={this.state.serverUrl}
               placeholder={strings.placeholders.serverURL}
-              onChangeText={text => this.setState({ serverUrl: text })}
+              onChangeText={(text) => this.setState({serverUrl: text})}
               keyboardType={'url'}
               autoCapitalize={'none'}
             />
@@ -118,49 +118,66 @@ class App extends Component {
               style={styles.textInput}
               value={this.state.roomName}
               placeholder={strings.placeholders.roomname}
-              onChangeText={text => this.setState({ roomName: text })}
+              onChangeText={(text) => this.setState({roomName: text})}
             />
             <TextInput
               style={styles.textInput}
               value={this.state.subject}
               placeholder={strings.placeholders.subject}
-              onChangeText={text => this.setState({ subject: text })}
+              onChangeText={(text) => this.setState({subject: text})}
             />
             <TextInput
               style={styles.textInput}
               value={this.state.displayName}
               placeholder={strings.placeholders.displayName}
-              onChangeText={text => this.setState({ displayName: text })}
+              onChangeText={(text) => this.setState({displayName: text})}
               autoCapitalize={'words'}
             />
             <TextInput
               style={styles.textInput}
               value={this.state.email}
               placeholder={strings.placeholders.email}
-              onChangeText={text => this.setState({ email: text })}
+              onChangeText={(text) => this.setState({email: text})}
               keyboardType={'email-address'}
             />
             <View style={styles.switch}>
               <Text>{strings.text.startWithAudioMuted}</Text>
-              <Switch onValueChange={() => this.setState({ audioMuted: !this.state.audioMuted })} value={this.state.audioMuted} />
+              <Switch
+                onValueChange={() =>
+                  this.setState({audioMuted: !this.state.audioMuted})
+                }
+                value={this.state.audioMuted}
+              />
             </View>
             <View style={styles.switch}>
               <Text>{strings.text.startWithVideoMuted}</Text>
-              <Switch onValueChange={() => this.setState({ videoMuted: !this.state.videoMuted })} value={this.state.videoMuted} />
+              <Switch
+                onValueChange={() =>
+                  this.setState({videoMuted: !this.state.videoMuted})
+                }
+                value={this.state.videoMuted}
+              />
             </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+              }}>
               <Text>{strings.avatar.avatar}</Text>
               <Image
                 style={styles.avatar}
-                resizeMode='contain'
-                source={{ uri: strings.avatar.avatarURL }}
+                resizeMode="contain"
+                source={{uri: strings.avatar.avatarURL}}
               />
             </View>
-            <TouchableOpacity onPress={() => this.runMeet()} style={styles.button}>
+            <TouchableOpacity
+              onPress={() => this.runMeet()}
+              style={styles.button}>
               <Text style={styles.buttonText}>{strings.buttons.join}</Text>
             </TouchableOpacity>
           </ScrollView>
-          )}
+        )}
       </View>
     );
   }
